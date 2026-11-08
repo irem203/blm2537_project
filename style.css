@@ -1,0 +1,301 @@
+:root {
+    --primary-color: #2B1915; /* Espresso - Menü, footer ve güçlü vurgular */
+    --bg-color: #E6DFD7;      /* Chalk - Genel arka plan rengi */
+    --accent-color: #C1B5A6;  /* Almond - Butonlar ve açık renk vurgular */
+    --text-color: #2B1915;    /* Espresso - Okunabilir metin rengi */
+    --border-color: #C1B5A6;  /* Almond - Kutu ve ayrım çizgileri */
+}
+
+
+/*  Tüm etiketlerin boşluklarını sıfırla */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color); 
+    line-height: 1.6;
+}
+
+.announcement {
+    text-align: center;
+    background-color: var(--primary-color);
+    color: var(--bg-color);
+    padding: 10px;
+}
+
+/* Sol  sağ grupların kendi içindeki hizalama */
+.nav-left, .nav-right {
+    display: flex;
+    align-items: center;
+    gap: 20px; /* İçindeki elemanların arasındaki boşluk */
+}
+
+/* Logonun tam ortada durması için sağ ve sol kutulara eşit genişlik  */
+.nav-left {
+    flex: 1;
+    justify-content: flex-start;
+}
+
+.nav-right {
+    flex: 1;
+    justify-content: flex-end;
+}
+
+.logo {
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+/* Gerçek checkboxı ekrandan gizle */
+.menu-toggle-box {
+    display: none;
+}
+
+/* Tıklanabilir hissi vermek için fare imlecini el yap */
+.menu-btn, .close-btn {
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* Yan Menünün Başlangıç Durumu (Ekran Dışı) */
+.side-menu {
+    position: fixed;
+    top: 0;
+    left: -300px; /* Ekranın solunda saklı durur */
+    width: 250px;
+    height: 100vh;
+    background-color: var(--bg-color);
+    border-right: 1px solid var(--border-color);
+    transition: left 0.3s ease; /* Kayma efekti */
+    padding: 30px;
+    z-index: 1000; /* Diğer her şeyin üstünde durmasını sağlar */
+}
+
+.side-menu.active {
+    left: 0;
+}
+
+nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+}
+
+a {
+    text-decoration: none;
+    color: var(--text-color);
+}
+
+a:hover {
+    opacity: 0.6;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px; 
+}
+
+th, td {
+    padding: 15px 10px;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+}
+th{
+    color: var(--primary-color);
+}
+/*   */
+.slide{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    padding: 40px 20px;
+}
+
+.slide img {
+    width: 50%;
+    border-radius: 15px;
+    object-fit: cover;
+}
+.slide-text {
+    width: 50%;
+    padding: 100px 30px;
+    border: 1px solid var(--border-color);
+    border-radius: 15px;
+    text-align: center;
+}
+
+
+.slide-text a {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 25px;
+    background-color: var(--primary-color);
+    color: var(--bg-color);
+    border-radius: 20px;
+}
+
+.new-arrivals h2 {
+    text-align: center;
+    margin-bottom: 30px;/*baslık ve urunler arasına mesafe */
+}
+
+.product-grid {
+    display: flex;
+    flex-wrap: wrap; /* urunler ekrana sığmazsa alta gecer*/
+    gap: 30px;
+    justify-content: center; /* tum grubu sayfa ortasına hizalar*/
+}
+
+.product-grid article {
+    width: 250px;
+    text-align: center;
+}
+
+.product-grid article img {
+    width: 100%;
+    height: auto;/*resmin en boy oranı bozulmasını engeller*/
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+.auth-page{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh
+}
+
+.login-section {
+    background-color: #ffffff; 
+    padding: 80px;             
+    border-radius: 8px;        
+    width: 400px;
+}
+
+.login-section form {
+    display: flex;
+    flex-direction: column; /*her seyı zorla alt alta dizer*/
+    gap: 15px; /*kutu ve butonlar arasına 15piksel bosluk*/
+}
+/* input alanı */
+.login-section input {
+    padding: 12px;                          
+    border: 1px solid var(--border-color);  
+    border-radius: 4px;                     
+    font-size: 14px;
+}
+
+
+.login-section button {
+    padding: 12px;
+    background-color: var(--primary-color); 
+    color: var(--bg-color);                 
+    border: none;                           
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;                        /* imleç el şeklinde oldu */
+}
+
+
+
+.cart-item {
+    display: flex; 
+    align-items: center; 
+    justify-content: space-between; 
+    padding: 20px 0;
+    border-bottom: 1px solid var(--border-color); 
+    gap: 20px;
+}
+
+.cart-item img {
+    border-radius: 8px; /* Ürün fotoğrafının köşelerini yumuşatır */
+}
+
+/* Ürün yazılarının olduğu orta kısım */
+.item-info {
+    flex: 1; /* Ortadaki alanın kalan tüm boşluğu kaplamasını sağlar */
+}
+
+
+.remove-btn {
+    background-color: transparent;
+    border: 1px solid var(--primary-color);
+    color: var(--primary-color);
+    padding: 8px 15px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.remove-btn:hover {
+    background-color: var(--primary-color);
+    color: var(--bg-color);
+}
+
+/* Sipariş Özeti  */
+.cart-summary {
+    background-color: #ffffff;
+    padding: 30px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    margin-top: 40px;
+    text-align: left; /* Fiyatları ve butonları sola yaslar */
+}
+
+.cart-summary h2 {
+    margin-bottom: 20px;
+    color: var(--primary-color);
+}
+
+.cart-summary p, .cart-summary h3 {
+    margin-bottom: 10px;
+}
+
+/* Ödeme Yap Butonu  */
+.checkout-btn {
+    margin-top: 15px;
+    padding: 15px 30px;
+    background-color: var(--primary-color);
+    color: var(--bg-color);
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    width: 300px; /* Butonu genişletir */
+}
+
+
+
+/* siparis gecmisini kutu içine alır */
+.order-history {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    margin-top: 30px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.03); /*  gölge */
+}
+
+.order-history h2 {
+    text-align: left;
+    margin-bottom: 20px;
+    color: var(--primary-color);
+}
+
+
+
+/* Sepet sayfası ortalama ve genişlik  */
+.cart-items, .cart-summary {
+    max-width: 900px; 
+    margin: 0 auto;   
+    padding: 20px;    
+}
